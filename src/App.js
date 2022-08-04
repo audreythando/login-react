@@ -1,7 +1,7 @@
 import './App.css';
 import React, {useState} from 'react';
 
-import Info from './components/Form/Info/Info';
+import Info from './components/Form/Modal/Modal';
 
 function App() {
   const [username, setUsername] = useState('');
