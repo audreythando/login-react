@@ -9,15 +9,12 @@ function App() {
   const [password, setPassword] = useState('');
 
   const changeUsernameHandler = (e) => {
-      console.log("username change: ", e.target.value);
       setUsername(e.target.value)
   }
   const changeEmailHandler = (e) => {
-      console.log("email change: ", e.target.value);
       setEmail(e.target.value)
   }
   const changePasswordHandler = (e) => {
-      console.log("password change: ", e.target.value);
       setPassword(e.target.value)
 
   }
