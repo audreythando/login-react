@@ -1,4 +1,4 @@
-import React from 'react';
+import React  from 'react';
 import {
     Modal,
     ModalOverlay,
@@ -12,9 +12,13 @@ import {
   } from '@chakra-ui/react'
 
 
-function Info(props) {
-    const { isOpen, onOpen, onClose } = useDisclosure();
+interface ModalDetails{
+  email: string,
+  password: string,
+}
 
+function Details(props: ModalDetails) {
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <div>
     <Button onClick={onOpen}>Login</Button>
@@ -26,7 +30,6 @@ function Info(props) {
         <ModalHeader>User Details</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
-           <p>{props.name}</p>
            <p>{props.email}</p>
            <p>{props.password}</p>
 
@@ -46,5 +49,4 @@ function Info(props) {
   )
     }
 
-export default Info
-
+export default Details
