@@ -29,7 +29,8 @@ function DetailModal(props: ModalDetails) {
 
     return (
         <div>
-            <Button onClick={onOpen} colorScheme={'orange'} mt={'15px'}>SignUp</Button>
+            <Button onClick={onOpen} background={'#DD6B20'} mt={'15px'} position={'absolute'} width={'434px'}
+            borderRadius={'15px'} height={'53px'}> SignUp</Button>
 
             <Modal isOpen={isOpen} onClose={closeModal}>
                 <ModalOverlay />

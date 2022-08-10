@@ -2,11 +2,10 @@ import React, { useState } from 'react'
 import {
   FormControl,
   FormLabel,
-  Button,
   Heading,
   Box,
+  Input
 } from '@chakra-ui/react'
-import { useNavigate } from "react-router-dom";
 import { Flex } from "@chakra-ui/react"
 import DetailModal from '../Details/DetailModal';
 
@@ -34,7 +33,6 @@ function SignUp() {
   }
 
 
-  const navigate = useNavigate();
 
   return (
 
@@ -45,29 +43,12 @@ function SignUp() {
         </Heading>
         <Box >
           <FormControl onSubmit={submit}>
-            <FormLabel>Username</FormLabel>
-            <input
-              type='username'
-              value={username}
-              onChange={(e) => changeUsernameHandler(e)}
-              placeholder='Username'
-            />
+          
+            <Input onChange={(e:any) => changeUsernameHandler(e)} placeholder='Username' value={username} variant='flushed'  />
+            <Input onChange={(e:any) => changeEmailHandler(e)} placeholder='Password' value={email} variant='flushed'  />
+            <Input onChange={(e:any) => changePasswordHandler(e)} placeholder='Password' value={password} variant='flushed'  />
 
-            <FormLabel>Email</FormLabel>
-            <input
-              type='email'
-              value={email}
-              onChange={(e) => changeEmailHandler(e)}
-              placeholder='Email'
-            />
-
-            <FormLabel>Password</FormLabel>
-            <input
-              type='password'
-              value={password}
-              onChange={(e) => changePasswordHandler(e)}
-              placeholder='Password'
-            />
+           
           </FormControl>
         </Box>
 
@@ -75,9 +56,8 @@ function SignUp() {
           navigate("/login");
         }} colorScheme='blue'>SignUp</Button> */}
         <DetailModal name={username} email={email} password={password} />
-
-
-      </div></Flex>
+</div>
+ </Flex>
 
 
   )
