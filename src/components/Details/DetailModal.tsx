@@ -12,12 +12,15 @@ import {
 } from '@chakra-ui/react'
 import { useNavigate } from "react-router-dom";
 
+interface ModalDetails {
+    name: string,
+    email: string,
+    password: string,
+}
 
-
-function DetailModal(props) {
+function DetailModal(props: ModalDetails) {
     const { isOpen, onOpen, onClose } = useDisclosure();
-
-    const navigate = useNavigate();
+    let navigate = useNavigate();
 
     const closeModal = () => {
         onClose();
@@ -26,11 +29,9 @@ function DetailModal(props) {
 
     return (
         <div>
-            <Button onClick={onOpen} >SignUp</Button>
-            
+            <Button onClick={onOpen} colorScheme={'orange'} mt={'15px'}>SignUp</Button>
 
-
-            <Modal isOpen={isOpen} onClose={closeModal}>        
+            <Modal isOpen={isOpen} onClose={closeModal}>
                 <ModalOverlay />
                 <ModalContent>
                     <ModalHeader>User Details</ModalHeader>
@@ -43,7 +44,7 @@ function DetailModal(props) {
                     </ModalBody>
 
                     <ModalFooter>
-                        <Button colorScheme='blue' mr={3} onClick={closeModal}>        
+                        <Button colorScheme='blue' mr={3} onClick={closeModal}>
                             Close
                         </Button>
                     </ModalFooter>
