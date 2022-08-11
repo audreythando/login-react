@@ -11,7 +11,8 @@ import {
   Square,
   SimpleGrid,
   GridItem,
-  Grid
+  Grid,
+  Center,
 } from '@chakra-ui/react'
 import Details from '../Details/Details';
 
@@ -34,39 +35,59 @@ function Form() {
 
   }
   return (
-   
-<SimpleGrid columns={2} spacing={1}>
 
- <Box  >
-  <Image src='./Images/picture.png' alt='picture 'height='1000px' /> 
-  </Box>
+    <SimpleGrid columns={2} spacing={1}>
 
-  <Box  bg='#F7F8FF' height='100%'>
-  <Grid   h='700px' 
-  templateRows='repeat(3, 1fr)'
-  templateColumns='repeat(5, 1fr)'
-  gap={1}
->
-  <GridItem colSpan={6} >
-  
-        <Heading 
-         fontFamily={'Roboto'} fontWeight={'700'}
-        size={'30px'}  letterSpacing={'15%'}>
-      Login Form
-       </Heading>
+      <Box  >
+      
+        <Image src='./Images/picture.png' alt='picture ' height='1000px' />
+       
+      </Box>
 
-       <Image src='./Images/logo.png' alt='logo' mb={'250px'} width={'313px'} height={'158px'} position={'absolute'} />
 
-       </GridItem> 
 
-  <GridItem colSpan={6} bg='blue' />
-  <GridItem colSpan={6} bg='blue' />
-  
-  
-  </Grid>
-  </Box>
+      <Box bg='#F7F8FF' height='100%'>
+        <Grid h='700px'
+          templateRows='repeat(3, 1fr)'
+          templateColumns='repeat(5, 1fr)'
+          gap={1}
+        >
 
-</SimpleGrid>
+          <GridItem colSpan={6} >
+          <Center>
+            <Heading
+              fontFamily={'Roboto'} fontWeight={'700'}
+              size={'30px'} letterSpacing={'15%'}>
+              Login Form
+            </Heading>
+            </Center>
+
+            <Image src='./Images/logo.png' alt='logo' mb={'250px'} width={'313px'} height={'158px'} position='absolute'  />
+          
+
+          </GridItem>
+
+          <GridItem colSpan={6} >
+
+          
+          <Input variant='flushed' onChange={(e: any) => changeEmailHandler(e)} placeholder='email' value={email} />
+        
+
+          
+          <Input variant='flushed' onChange={(e: any) => changePasswordHandler(e)} placeholder='Password' value={password} />
+        
+          </GridItem>
+
+          <GridItem colSpan={6}>
+          <Details email={email} password={password} />
+
+          </GridItem>
+
+
+        </Grid>
+      </Box>
+
+    </SimpleGrid>
 
 
 
