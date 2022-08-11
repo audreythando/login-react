@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import {
   FormControl,
-  FormLabel,
   Heading,
   Box,
-  Input
+  Input, 
+  Image,
+  Container
 } from '@chakra-ui/react'
 import { Flex } from "@chakra-ui/react"
 import DetailModal from '../Details/DetailModal';
-
 
 
 function SignUp() {
@@ -32,32 +32,47 @@ function SignUp() {
     e.preventDefault();
   }
 
-
+  
 
   return (
 
+    <Container>
+
     <Flex align="center" justify="center">
+
+    <Box width={'50%'}>
+  <Image src='./Images/picture.png' alt= 'picture' width={'727px'} height={'817px'} position={'absolute'} right={'700px'} mb={'150px'}/>  
+  </Box>
+
       <div>
-        <Heading as='h2' size='2xl' mb='24px'>
+        <Heading width={'132px'} height={'75px'} top={'925px'} alignContent={'center'}
+        left={'159px'} fontFamily={'Roboto'} fontWeight={'700'}
+        size={'30px'} lineHeight={'30px'} alignItems={'center'} letterSpacing={'15%'}>
           SignUp
         </Heading>
-        <Box >
+
+
+        
+  <Image src='./Images/logo.png' alt='logo'mb={'250px'} width={'313px'} height={'158px'} position= {'absolute'} />
+
+
+        <Box mt={'150px'} >
           <FormControl onSubmit={submit}>
           
-            <Input onChange={(e:any) => changeUsernameHandler(e)} placeholder='Username' value={username} variant='flushed'  />
-            <Input onChange={(e:any) => changeEmailHandler(e)} placeholder='Password' value={email} variant='flushed'  />
-            <Input onChange={(e:any) => changePasswordHandler(e)} placeholder='Password' value={password} variant='flushed'  />
-
+            <Input onChange={(e: React.ChangeEvent<any>): void  => changeUsernameHandler(e)} placeholder='Username' value={username} variant='flushed'  />
+            <Input onChange={(e: React.ChangeEvent<any>): void  => changeEmailHandler(e)} placeholder='Password' value={email} variant='flushed'  />
+            <Input onChange={(e:React.ChangeEvent<any>): void => changePasswordHandler(e)} placeholder='Password' value={password} variant='flushed'  />
+            
+  
            
           </FormControl>
         </Box>
 
-        {/* <Button onClick={() => {
-          navigate("/login");
-        }} colorScheme='blue'>SignUp</Button> */}
         <DetailModal name={username} email={email} password={password} />
 </div>
- </Flex>
+
+</Flex>
+</Container>
 
 
   )

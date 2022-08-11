@@ -1,14 +1,15 @@
 import React, {useState} from 'react'
 import {
     FormControl,
-    FormLabel,
     Heading,
     Avatar,
     Stack,
-    AvatarGroup
+    Input,
+    Flex,
+    Box,
+    Image
   } from '@chakra-ui/react'
 import Details from '../Details/Details';
-import {Flex } from "@chakra-ui/react"
 
   
 function Form() {
@@ -16,52 +17,45 @@ function Form() {
   const [password, setPassword] = useState('');
 
   
-  const changeEmailHandler = (e:any) => {
+  const changeEmailHandler = (e:React.ChangeEvent<any>): void => {
       setEmail(e.target.value)
   }
-  const changePasswordHandler = (e:any) => {
+  const changePasswordHandler = (e:React.ChangeEvent<any>): void => {
       setPassword(e.target.value)
 
   }
 
   
-  const submit = (e:any) => {
+  const submit = (e:React.ChangeEvent<any>): void => {
       e.preventDefault();
 
   }
   return (
     <Flex align="center" justify="center">
     <div>
-        <AvatarGroup spacing='1rem'>
-  <Avatar bg='teal.500' />
-</AvatarGroup>
+    
+    
+    <Box width={'50%'}>
+  <Image src='./Images/picture.png' alt= 'picture' width={'727px'} height={'817px'} position={'absolute'} right={'700px'} mb={'150px'}/>  
+  </Box>
 
         <Stack spacing={6}>
-        <Heading as='h2' size='2xl'>
+        <Heading  width={'132px'} height={'75px'} top={'925px'} alignContent={'center'}
+        left={'159px'} fontFamily={'Roboto'} fontWeight={'700'}
+        size={'30px'} lineHeight={'30px'} alignItems={'center'} letterSpacing={'15%'}>
     Login Form
   </Heading>
+
+
+  <Image src='./Images/logo.png' alt='logo'mb={'250px'} width={'313px'} height={'158px'} position= {'absolute'} />
         </Stack>
          
     <FormControl onSubmit={submit} >
-    <FormLabel>Email</FormLabel>
-      <input 
-        type='email'
-        value={email}
-        onChange={(e:any) => changeEmailHandler(e)}
-         placeholder='Email' 
-      />
+     <Input variant='flushed' onChange={(e:any) => changeEmailHandler(e)} placeholder='email' value={email} />
+   <Input variant='flushed' onChange={(e:any) => changePasswordHandler(e)} placeholder='Password' value={password} />
     
-
-      <FormLabel>Password</FormLabel>
-      <input 
-        type='password'
-        name= 'password'
-        value={password}
-        onChange={(e) => changePasswordHandler(e)} 
-        placeholder='Password' 
-      />
      </FormControl>
-    <Details email={email} password={password} />
+     <Details email={email} password={password} />
       
     </div></Flex>
   )
