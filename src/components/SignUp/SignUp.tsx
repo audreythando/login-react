@@ -60,7 +60,7 @@ function SignUp() {
           <Heading
             fontFamily={'Roboto'} fontWeight={'700'}
             size={'30px'} letterSpacing={'15%'}>
-            Login Form
+            SignUp
           </Heading>
           </Center>
 
@@ -72,11 +72,11 @@ function SignUp() {
         <GridItem colSpan={6} >
 
         
-        <Input variant='flushed' onChange={(e: any) => changeEmailHandler(e)} placeholder='email' value={email} />
+        <Input variant='flushed' onChange={(e:React.ChangeEvent<any>): void => changeEmailHandler(e)} placeholder='email' value={email} />
       
 
         
-        <Input variant='flushed' onChange={(e: any) => changePasswordHandler(e)} placeholder='Password' value={password} />
+        <Input variant='flushed' onChange={(e: React.ChangeEvent<any>): void => changePasswordHandler(e)} placeholder='Password' value={password} />
       
         </GridItem>
 
@@ -87,6 +87,7 @@ function SignUp() {
 
 
       </Grid>
+      <h2>Already have an account ? Login</h2>
     </Box>
 
   </SimpleGrid>
