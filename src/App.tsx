@@ -1,6 +1,7 @@
 import React from 'react';
 import Login from './components/Login/Login';
 import SignUp from './components/SignUp/SignUp';
+import PageNotFound from './components/PageNotFound/PageNotFound';
 import {
   Routes,
   Route,
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<SignUp />} />
           <Route path="/signUp" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/pageNotFound"  element={<PageNotFound/>}/>
         </Routes>
   
 

@@ -13,7 +13,7 @@ import {
     Image,
     Box
   } from '@chakra-ui/react'
-
+  import { useNavigate } from "react-router-dom";
 
 interface ModalDetails{
   email: string,
@@ -22,13 +22,20 @@ interface ModalDetails{
 
 function Details(props: ModalDetails) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  let navigate = useNavigate();
+
+  const closeModal = () => {
+    onClose();
+    navigate("/pageNotFound");
+}
   return (
     <div>
     <Button onClick={onOpen} background={'#DD6B20'} mt={'15px'} position={'absolute'} width={'434px'}
             borderRadius={'15px'} height={'53px'}>Login</Button>
 
 
-    <Modal isOpen={isOpen} onClose={onClose} >
+    <Modal isOpen={isOpen} onClose={closeModal} >
       <ModalOverlay />
       <ModalContent background={'#F7F8FF'} width={'520px'}  height={'603px'} borderRadius={'90px'}>
 
@@ -56,7 +63,7 @@ function Details(props: ModalDetails) {
         </ModalBody>
 
         <ModalFooter>
-          <Button background={'#DD6B20'} borderRadius={'15px'} width={'350px'} height={'53px'} mb={'100px'} position={'absolute'} onClick={onClose}>
+          <Button background={'#DD6B20'} borderRadius={'15px'} width={'350px'} height={'53px'} mb={'100px'} position={'absolute'} onClick={closeModal}>
             Close
           </Button>
         </ModalFooter>
