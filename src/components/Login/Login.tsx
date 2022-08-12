@@ -36,24 +36,24 @@ function Form() {
   }
   return (
 
-    <SimpleGrid columns={2} spacing={1}>
+    <SimpleGrid columns={2} spacing={1} >
 
-      <Box  >
+      <Box height={'-moz-max-content'} >
       
-        <Image src='./Images/picture.png' alt='picture ' height='1000px' />
+        <Image src='./Images/picture.png' alt='picture ' />
        
       </Box>
 
 
 
-      <Box bg='#F7F8FF' height='100%'>
+      <Box bg='#F7F8FF' height='-moz-min-content'>
         <Grid h='700px'
           templateRows='repeat(3, 1fr)'
           templateColumns='repeat(5, 1fr)'
           gap={1}
         >
 
-          <GridItem colSpan={6} >
+          <GridItem colSpan={3} >
           <Center>
             <Heading
               fontFamily={'Roboto'} fontWeight={'700'}
@@ -67,18 +67,18 @@ function Form() {
 
           </GridItem>
 
-          <GridItem colSpan={6} >
+          <GridItem colSpan={3} >
 
           
-          <Input variant='flushed' onChange={(e: any) => changeEmailHandler(e)} placeholder='email' value={email} />
+          <Input variant='flushed' onChange={(e: React.ChangeEvent<any>): void => changeEmailHandler(e)} placeholder='email' value={email} />
         
 
           
-          <Input variant='flushed' onChange={(e: any) => changePasswordHandler(e)} placeholder='Password' value={password} />
+          <Input variant='flushed' onChange={(e:React.ChangeEvent<any>): void => changePasswordHandler(e)} placeholder='Password' value={password} />
         
           </GridItem>
 
-          <GridItem colSpan={6}>
+          <GridItem colSpan={3}>
           <Details email={email} password={password} />
 
           </GridItem>
@@ -86,6 +86,7 @@ function Form() {
 
         </Grid>
       </Box>
+      <h2>Do not have an account ? SignUp</h2>
 
     </SimpleGrid>
 
