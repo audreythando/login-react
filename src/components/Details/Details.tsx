@@ -31,10 +31,10 @@ function Details(props: ModalDetails) {
 
     <Modal isOpen={isOpen} onClose={onClose} >
       <ModalOverlay />
-      <ModalContent background={'#F7F8FF'} width={'520px'}  height={'603px'} borderRadius={'90px'}>
+      <ModalContent background={'#F7F8FF'} width={'fit-content'}  height={'450px'} borderRadius={'90px'}>
 
         <Box>
-      <Image src='./Images/logo.png' alt='logo' mb={'187px'} alignItems={'center'} width={'204px'} height={'66px'} position= {'absolute'} />
+      <Image src='./Images/logo.png' alt='logo' mb={'187px'}  width={'204px'} height={'66px'} position= {'absolute'} />
       </Box>
 
       <div>
@@ -47,17 +47,17 @@ function Details(props: ModalDetails) {
         
       
         <Input value={props.email}  variant='flushed' placeholder='Email' alignItems={'center'} fontFamily={'Roboto'} fontWeight={'100'} size={'18px'} 
-      margin={'35px'}  width={'-moz-fit-content'}/>
+      margin={'25px'}  width={'-moz-fit-content'}/>
+      
         <Input value={props.password}  variant='flushed' placeholder='Password' alignItems={'center'} fontFamily={'Roboto'} fontWeight={'100'} size={'18px'}
-        margin={'35px'} width={'-moz-fit-content'} />
+        margin={'25px'} width={'-moz-fit-content'} />
 
-           {/* <p>{props.email}</p>
-           <p>{props.password}</p> */}
+        
            
         </ModalBody>
 
         <ModalFooter>
-          <Button background={'#DD6B20'} borderRadius={'15px'} width={'350px'} height={'53px'} mb={'100px'} position={'absolute'} onClick={onClose}>
+          <Button background={'#DD6B20'} borderRadius={'15px'} width={'350px'} height={'53px'} mb={'170px'} position={'absolute'} onClick={onClose}>
             Close
           </Button>
         </ModalFooter>
