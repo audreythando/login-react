@@ -1,4 +1,4 @@
-import React  from 'react';
+import {useState} from 'react';
 import {
     Modal,
     ModalOverlay,
@@ -13,15 +13,19 @@ import {
     Image,
     Box
   } from '@chakra-ui/react'
-  import { useNavigate } from "react-router-dom";
 
-interface ModalDetails{
-  email: string,
-  password: string,
+  interface ModalDetails {
+    email: string,
+    password: string,
+    isOpen: boolean,
+    onOpen: ()=> void,
+    onClose: ()=> void
 }
 
 function Details(props: ModalDetails) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const [name , setName ]= useState <string|null|number>('')
 
   return (
     <div>
