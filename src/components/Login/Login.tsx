@@ -13,6 +13,7 @@ import {
   GridItem,
   Grid,
   Center,
+  useDisclosure
 } from '@chakra-ui/react'
 import Details from '../Details/Details';
 
@@ -29,6 +30,7 @@ function Form() {
 
   }
 
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const submit = (e: React.ChangeEvent<any>): void => {
     e.preventDefault();
@@ -39,9 +41,9 @@ function Form() {
     <SimpleGrid columns={2} spacing={1} >
 
       <Box height={'-moz-max-content'} >
-      
+
         <Image src='./Images/picture.png' alt='picture ' />
-       
+
       </Box>
 
 
@@ -54,32 +56,32 @@ function Form() {
         >
 
           <GridItem colSpan={3} >
-          <Center>
-            <Heading
-              fontFamily={'Roboto'} fontWeight={'700'}
-              size={'30px'} letterSpacing={'15%'}>
-              Login Form
-            </Heading>
+            <Center>
+              <Heading
+                fontFamily={'Roboto'} fontWeight={'700'}
+                size={'30px'} letterSpacing={'15%'}>
+                Login Form
+              </Heading>
             </Center>
 
-            <Image src='./Images/logo.png' alt='logo' mb={'250px'} width={'313px'} height={'158px'} position='absolute'  />
-          
+            <Image src='./Images/logo.png' alt='logo' mb={'250px'} width={'313px'} height={'158px'} position='absolute' />
+
 
           </GridItem>
 
           <GridItem colSpan={3} >
 
-          
-          <Input variant='flushed' onChange={(e: React.ChangeEvent<any>): void => changeEmailHandler(e)} placeholder='email' value={email} />
-        
 
-          
-          <Input variant='flushed' onChange={(e:React.ChangeEvent<any>): void => changePasswordHandler(e)} placeholder='Password' value={password} />
-        
+            <Input variant='flushed' onChange={(e: React.ChangeEvent<any>): void => changeEmailHandler(e)} placeholder='email' value={email} />
+
+
+
+            <Input variant='flushed' onChange={(e: React.ChangeEvent<any>): void => changePasswordHandler(e)} placeholder='Password' value={password} />
+
           </GridItem>
 
           <GridItem colSpan={3}>
-          <Details email={email} password={password} />
+            <Details email={email} password={password}  onOpen={onOpen} onClose={onClose} isOpen={isOpen} />
 
           </GridItem>
 

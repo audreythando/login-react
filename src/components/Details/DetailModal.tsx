@@ -19,24 +19,30 @@ interface ModalDetails {
     name: string,
     email: string,
     password: string,
+    isOpen: boolean,
+    onOpen: ()=> void,
+    onClose: ()=> void
 }
 
+
 function DetailModal(props: ModalDetails) {
-    const { isOpen, onOpen, onClose } = useDisclosure();
+
     let navigate = useNavigate();
 
     const closeModal = () => {
-        onClose();
+        props.onClose();
         navigate("/login");
     }
 
+    console.log('Donald props' , props)
+
     return (
         <div>
-            <Button onClick={onOpen} background={'#DD6B20'} mt={'15px'} position={'absolute'} width={'434px'}
+            <Button onClick={props.onOpen} background={'#DD6B20'} mt={'15px'} position={'absolute'} width={'434px'}
                 borderRadius={'15px'} height={'53px'}>Login</Button>
 
 
-            <Modal isOpen={isOpen} onClose={closeModal} >
+            <Modal isOpen={props.isOpen} onClose={closeModal} >
                 <ModalOverlay />
                 <ModalContent background={'#F7F8FF'} width={'fit-content'} height={'450px'} borderRadius={'90px'}>
 
