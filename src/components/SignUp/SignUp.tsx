@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {
-  FormControl,
+  Flex,
   Heading,
   Box,
   Input,
@@ -10,21 +10,25 @@ import {
   GridItem,
   Center,
   Grid,
-  useDisclosure
+  useDisclosure,
+  InputRightElement,
+  InputGroup
 } from '@chakra-ui/react'
 import DetailModal from '../Details/DetailModal';
+import { ViewOffIcon } from '@chakra-ui/icons'
+
 
 
 function SignUp() {
-  const [username, setUsername] = useState('');
+  const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const changeUsernameHandler = (e: React.ChangeEvent<any>): void => {
-    setUsername(e.target.value)
+  const changeFullNameHandler = (e: React.ChangeEvent<any>): void => {
+    setFullName(e.target.value)
   }
   const changeEmailHandler = (e: React.ChangeEvent<any>): void => {
     setEmail(e.target.value)
@@ -34,72 +38,60 @@ function SignUp() {
 
   }
 
-
-  const submit = (e: React.ChangeEvent<any>): void => {
-    e.preventDefault();
-  }
-
-
-
   return (
-    <SimpleGrid columns={2} spacing={1}>
+    <Flex maxW='100%' justify='center'>
+      
+      <Center height='-webkit-fit-content'>
+        <Image src='./Images/picture.png' />
+      </Center>
+    
 
-      <Box  >
-
-        <Image src='./Images/picture.png' alt='picture ' height='1000px' />
-
-      </Box>
-
-
-
-      <Box bg='#F7F8FF' height='100%'>
-        <Grid h='700px'
-          templateRows='repeat(3, 1fr)'
-          templateColumns='repeat(5, 1fr)'
-          gap={1}
-        >
-
-          <GridItem colSpan={6} >
-            <Center>
-              <Heading
-                fontFamily='Roboto' fontWeight='700'
-                size='30px' letterSpacing='15%'>
-                SignUp
-              </Heading>
-            </Center>
-
-            <Image src='./Images/logo.png' alt='logo' mb='250px' width='313px' height='158px' position='absolute' />
+      <Center flexDirection='column' width='50%' height='-webkit-fit-content' background='#F7F8FF'>
+      <h3>English UK</h3>
 
 
-          </GridItem>
+        <Box>
+          <Heading
+            fontFamily='Roboto' fontWeight='700'
+            size='30px' width='132px' height='75px' letterSpacing='15%' lineHeight='30px' mt='50px' >
 
-          <GridItem colSpan={6} margin='35px'>
+            Sign Up
+          </Heading>
+        </Box>
 
-
-            <Input variant='flushed' onChange={(e: React.ChangeEvent<any>): void => changeEmailHandler(e)} placeholder='email' value={email} />
-
-
-
-            <Input variant='flushed' onChange={(e: React.ChangeEvent<any>): void => changePasswordHandler(e)} placeholder='Password' value={password} />
-
-          </GridItem>
-
-          <GridItem colSpan={6}>
-            <DetailModal name={username} email={email} password={password} onOpen={onOpen} onClose={onClose} isOpen={isOpen} />
-
-          </GridItem>
+        <Box>
+          <Image src='./Images/logo.png' alt='logo' width='313px' height='158px' mt='15px' />
+        </Box>
 
 
-        </Grid>
-        <h2 >Already have an account ? Login</h2>
-      </Box>
+        <Box>
+          <Input variant='flushed' onChange={(e: React.ChangeEvent<any>): void => changeFullNameHandler(e)} placeholder='Fullname' value={fullName} width='434px' top='89px' />
+        </Box>
 
-    </SimpleGrid>
+        <Box>
+          <Input variant='flushed' onChange={(e: React.ChangeEvent<any>): void => changeEmailHandler(e)} placeholder='email' value={email} width='434px'  top='89px'/>
+        </Box>
+        
 
+        <Box>
+        <InputGroup>
+          <Input variant='flushed' onChange={(e: React.ChangeEvent<any>): void => changePasswordHandler(e)} placeholder='Password' value={password} width='434px'  top='89px'/>
+          <InputRightElement children={<ViewOffIcon color='green.500' />} />
+          </InputGroup>
+        </Box>
 
+        <Box display='flex' alignItems='center'>
+          
+        <DetailModal name={fullName} email={email} onOpen={onOpen} onClose={onClose} isOpen={isOpen} />
+        
+        </Box>
 
+        <h2 text-align='center' color=' #000000' font-family='Roboto' font-style='normal' font-size='13px' font-weight='100' line-height='40px'>Do not have an account ? SignUp</h2>
+    
 
+      </Center>
 
+    </Flex>
 
 
 

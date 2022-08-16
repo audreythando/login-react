@@ -17,7 +17,6 @@ import { useNavigate } from "react-router-dom";
 interface ModalDetails {
     name: string,
     email: string,
-    password: string,
     isOpen: boolean,
     onOpen: () => void,
     onClose: () => void
@@ -33,12 +32,11 @@ function DetailModal(props: ModalDetails) {
         navigate("/login");
     }
 
-    console.log('Donald props', props)
 
     return (
         <div>
             <Button onClick={props.onOpen} background='#DD6B20' mt='15px' left='25px' width='434px'
-                borderRadius='15px' height='53px'>SignUp</Button>
+                borderRadius='15px' height='53px' marginTop='150px'>SignUp</Button>
 
 
             <Modal isOpen={props.isOpen} onClose={closeModal} >
@@ -50,7 +48,7 @@ function DetailModal(props: ModalDetails) {
                     </Box>
 
                     <div>
-                        <ModalHeader mt='50px' alignContent='center'>User Details</ModalHeader>
+                        <ModalHeader mt='50px' alignContent='center'> User Added</ModalHeader>
                     </div>
 
                     <ModalCloseButton />
@@ -58,10 +56,10 @@ function DetailModal(props: ModalDetails) {
 
 
 
-                        <Input value={props.email} variant='flushed' placeholder='Email' alignItems='center' fontFamily='Roboto' fontWeight={'100'} size={'18px'}
+                        <Input value={props.name} variant='flushed' placeholder='Fullname' alignItems='center' fontFamily='Roboto' fontWeight={'100'} size={'18px'}
                             margin='25px' width='-moz-fit-content' />
 
-                        <Input value={props.password} variant='flushed' placeholder='Password' alignItems='center' fontFamily='Roboto' fontWeight={'100'} size={'18px'}
+                        <Input value={props.email} variant='flushed' placeholder='Email' alignItems='center' fontFamily='Roboto' fontWeight={'100'} size={'18px'}
                             margin='25px' width='-moz-fit-content' />
 
 

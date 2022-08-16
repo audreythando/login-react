@@ -1,20 +1,29 @@
 import React from 'react';
-import { Image, Box } from '@chakra-ui/react';
+import { Image, Box, Flex, Center } from '@chakra-ui/react';
 
 
 function PageNotFound() {
 
 
     return (
-        <div>
-            <Image src='./Images/logo.png' alt='logo' mb='250px' width='313px' height='158px' position='absolute' />
+        <Flex maxW='100%' justify='center'>
+            <Center flexDirection='column'>
 
-            <h1>Page Not Found</h1>
+                <Box>
+                    <Image src='./Images/logo.png' alt='logo'  width='313px' height='158px'  />
+                </Box>
 
-            <Image src='./Images/404.png.png' alt='logo' mb='250px' width='313px' height='158px' position='absolute' />
+                <Box fontFamily='Roboto' width='434px' height='68px' fontSize='30px' fontWeight='700' lineHeight='30px' color='#000000'>
+                    <h1>Page Not Found</h1>
+                </Box>
 
+                <Box>
+                    <Image src='./Images/404.png.png' alt='logo'  width='521px' height='276px' />
 
-        </div>
+                </Box>
+            </Center>
+
+        </Flex>
     );
 }
 
