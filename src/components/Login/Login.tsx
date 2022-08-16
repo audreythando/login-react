@@ -2,13 +2,9 @@ import React, { useState } from 'react'
 import {
   FormControl,
   Heading,
-  Avatar,
-  Stack,
   Input,
-  Flex,
   Box,
   Image,
-  Square,
   SimpleGrid,
   GridItem,
   Grid,
@@ -42,102 +38,64 @@ function Form() {
 
       <Box height={'-moz-max-content'} >
 
-        <Image src='./Images/picture.png' alt='picture ' />
+        <Image src='./Images/picture.png' alt='picture ' height='1000px' />
 
       </Box>
 
 
 
-      <Box bg='#F7F8FF' height='-moz-min-content'>
+      <Box bg='#F7F8FF' height='100%'>
         <Grid h='700px'
           templateRows='repeat(3, 1fr)'
           templateColumns='repeat(5, 1fr)'
           gap={1}
         >
 
-          <GridItem colSpan={3} >
+          <GridItem colSpan={6} >
             <Center>
               <Heading
-                fontFamily={'Roboto'} fontWeight={'700'}
-                size={'30px'} letterSpacing={'15%'}>
+                fontFamily='Roboto' fontWeight='700'
+                size='30px' letterSpacing='15%'>
                 Login Form
               </Heading>
             </Center>
 
-            <Image src='./Images/logo.png' alt='logo' mb={'250px'} width={'313px'} height={'158px'} position='absolute' />
+            <Image src='./Images/logo.png' alt='logo' width='313px' height='158px' objectPosition='absolute' top='-219px' left='125px' />
 
 
           </GridItem>
 
-          <GridItem colSpan={3} >
+          <GridItem colSpan={6} >
 
 
             <Input variant='flushed' onChange={(e: React.ChangeEvent<any>): void => changeEmailHandler(e)} placeholder='email' value={email} />
 
 
 
-            <Input variant='flushed' onChange={(e: React.ChangeEvent<any>): void => changePasswordHandler(e)} placeholder='Password' value={password} />
+            <Input variant='flushed' onChange={(e: React.ChangeEvent<any>): void => changePasswordHandler(e)} placeholder='Password' value={password}
+
+            />
+
+            <Image src='./Images/eye.png' />
 
           </GridItem>
 
-          <GridItem colSpan={3}>
-            <Details email={email} password={password}  onOpen={onOpen} onClose={onClose} isOpen={isOpen} />
+          <GridItem colSpan={6}>
+            <Details email={email} password={password} onOpen={onOpen} onClose={onClose} isOpen={isOpen} />
 
           </GridItem>
 
 
         </Grid>
+        <h2 align-items='center' text-align='center' color=' #000000' font-family='Roboto' font-style='normal' font-size='13px' font-weight='100' line-height='40px'>Do not have an account ? SignUp</h2>
       </Box>
-      <h2>Do not have an account ? SignUp</h2>
+
 
     </SimpleGrid>
 
 
 
 
-    // <Flex justify="space-between">
-
-    //   <Square>
-    //     1
-    //   </Square>
-
-    //   <Square>
-    //     <Flex direction="column" align="center">
-    //       <Box>222222222</Box>
-    //       <Box>3</Box>
-    //       <Box>4</Box>
-    //     </Flex>
-    //   </Square>
-
-    // </Flex>
-    // <Flex align="center" justify="center">
-
-    //   <Square maxWidth={'50%'}>
-    //     <Image src='./Images/picture.png' alt='picture ' />
-    //   </Square>
-
-
-    //   <Square maxWidth={'50%'} background={'#F7F8FF'}>
-    //     <Stack spacing={6}>
-    //       <Heading width={'132px'} height={'75px'} top={'925px'} alignContent={'center'}
-    //         left={'159px'} fontFamily={'Roboto'} fontWeight={'700'}
-    //         size={'30px'} lineHeight={'30px'} alignItems={'center'} letterSpacing={'15%'}>
-    //         Login Form
-    //       </Heading>
-
-
-    //       <Image src='./Images/logo.png' alt='logo' mb={'250px'} width={'313px'} height={'158px'} position={'absolute'} />
-    //     </Stack>
-
-    //     <FormControl onSubmit={submit} >
-    //       <Input variant='flushed' onChange={(e: any) => changeEmailHandler(e)} placeholder='email' value={email} />
-    //       <Input variant='flushed' onChange={(e: any) => changePasswordHandler(e)} placeholder='Password' value={password} />
-
-    //     </FormControl>
-    //     <Details email={email} password={password} />
-    //   </Square>
-
-    // </Flex>
   )
 }
 
