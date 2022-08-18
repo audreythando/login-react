@@ -32,24 +32,24 @@ function Details(props: ModalDetails) {
   return (
     <div>
       <Button onClick={onOpen} background='#DD6B20' mt='15px' left='25px' width='434px'
-        borderRadius='15px' height='53px'  marginTop='150px'>Login</Button>
+        borderRadius='15px' height='53px' marginTop='150px'>Login</Button>
 
 
       <Modal isOpen={isOpen} onClose={onClose} >
         <ModalOverlay />
         <ModalContent background='#F7F8FF' width='fit-content' height='450px' borderRadius='90px'>
 
-<Flex maxW='100%' justify='center'>
-  <Center flexDirection='column'>
-          <Box>
-            <Image src='./Images/logo.png' alt='logo'  width='204px' height='66px'  />
-          </Box>
+          <Flex maxW='100%' justify='center'>
+            <Center flexDirection='column'>
+              <Box>
+                <Image src='./Images/logo.png' alt='logo' width='204px' height='66px' />
+              </Box>
 
-        
-            <ModalHeader mt='50px' alignContent='center'>User Name</ModalHeader>
+
+              <ModalHeader mt='50px' alignContent='center'>User Name</ModalHeader>
             </Center>
-            </Flex>
-        
+          </Flex>
+
 
           <ModalCloseButton />
           <ModalBody>
@@ -67,7 +67,7 @@ function Details(props: ModalDetails) {
           </ModalBody>
 
           <ModalFooter>
-            <Button background='#DD6B20' borderRadius='15px' width='350px' height='53px' mb='170px' position='absolute' onClick={onClose}>
+            <Button background='#DD6B20' borderRadius='15px' width='350px' height='53px' mb='130px' position='absolute' onClick={onClose}>
               Close
             </Button>
           </ModalFooter>

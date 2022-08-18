@@ -5,17 +5,14 @@ import {
   Box,
   Input,
   Image,
-  Container,
-  SimpleGrid,
-  GridItem,
   Center,
-  Grid,
   useDisclosure,
   InputRightElement,
-  InputGroup
+  InputGroup,
+  useMediaQuery,
 } from '@chakra-ui/react'
 import DetailModal from '../Details/DetailModal';
-import { ViewOffIcon } from '@chakra-ui/icons'
+import { ViewOffIcon, TriangleDownIcon } from '@chakra-ui/icons'
 
 
 
@@ -24,6 +21,10 @@ function SignUp() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const [show, setShow] = React.useState(false)
+  const handleClick = () => setShow(!show)
+
+  const [isMobile] = useMediaQuery('(min-width: 600px)')
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -39,55 +40,79 @@ function SignUp() {
   }
 
   return (
-    <Flex maxW='100%' justify='center'>
-      
-      <Center height='-webkit-fit-content'>
+    <Flex direction={isMobile ? 'row':'column'} maxW='100%' justify='center' >
+
+      <Center width='50%'>
         <Image src='./Images/picture.png' />
       </Center>
-    
+
 
       <Center flexDirection='column' width='50%' height='-webkit-fit-content' background='#F7F8FF'>
-      <h3>English UK</h3>
+
+        <InputGroup justifyItems='flex-end'>
+          <h5>English UK</h5>
+          <InputRightElement children={<TriangleDownIcon color='black' />} />
+        </InputGroup>
+
 
 
         <Box>
           <Heading
             fontFamily='Roboto' fontWeight='700'
-            size='30px' width='132px' height='75px' letterSpacing='15%' lineHeight='30px' mt='50px' >
+            size='30px' width='132px' height='75px' letterSpacing='15%' lineHeight='30px' mt='30px' >
 
             Sign Up
           </Heading>
         </Box>
 
         <Box>
-          <Image src='./Images/logo.png' alt='logo' width='313px' height='158px' mt='15px' />
+          <Image src='./Images/logo.png' alt='logo' width='313px' height='158px' />
         </Box>
 
+<Box>
+<InputGroup>
+    <InputRightElement
+      pointerEvents='none'
+    />
+    <Input variant='flushed'  placeholder='Fullname' onChange={(e: React.ChangeEvent<any>): void => changeFullNameHandler(e)}  
+     value={fullName} width='250px'/>
+  </InputGroup>
 
-        <Box>
-          <Input variant='flushed' onChange={(e: React.ChangeEvent<any>): void => changeFullNameHandler(e)} placeholder='Fullname' value={fullName} width='434px' top='89px' />
-        </Box>
+</Box>
 
-        <Box>
-          <Input variant='flushed' onChange={(e: React.ChangeEvent<any>): void => changeEmailHandler(e)} placeholder='email' value={email} width='434px'  top='89px'/>
-        </Box>
-        
+<Box>
+<InputGroup>
+    <InputRightElement
+      pointerEvents='none'
+    />
+    <Input variant='flushed'  placeholder='Email' onChange={(e: React.ChangeEvent<any>): void => changeEmailHandler(e)}  
+     value={email}  width='250px'/>
+  </InputGroup>
 
-        <Box>
-        <InputGroup>
-          <Input variant='flushed' onChange={(e: React.ChangeEvent<any>): void => changePasswordHandler(e)} placeholder='Password' value={password} width='434px'  top='89px'/>
-          <InputRightElement children={<ViewOffIcon color='green.500' />} />
-          </InputGroup>
-        </Box>
+</Box>
+
+<Box>
+<InputGroup>
+    <InputRightElement
+      pointerEvents='none'
+      children={<ViewOffIcon color='gray.300' />}
+    />
+    <Input variant='flushed' type='password' placeholder='Password' onChange={(e: React.ChangeEvent<any>): void => changePasswordHandler(e)}  
+     value={password}  width='250px'/>
+  </InputGroup>
+
+</Box>
+
+
 
         <Box display='flex' alignItems='center'>
-          
-        <DetailModal name={fullName} email={email} onOpen={onOpen} onClose={onClose} isOpen={isOpen} />
-        
+
+          <DetailModal name={fullName} email={email} onOpen={onOpen} onClose={onClose} isOpen={isOpen} />
+
         </Box>
 
-        <h2 text-align='center' color=' #000000' font-family='Roboto' font-style='normal' font-size='13px' font-weight='100' line-height='40px'>Do not have an account ? SignUp</h2>
-    
+        <h4 text-align='center' color=' #000000' font-family='Roboto' font-style='normal' font-size='13px' font-weight='100' line-height='40px'>Do not have an account ? SignUp</h4>
+
 
       </Center>
 

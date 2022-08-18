@@ -6,9 +6,13 @@ import {
   Image,
   Flex,
   useDisclosure,
-  Center
+  Center,
+  InputGroup,
+  InputRightElement,
+  useMediaQuery
 } from '@chakra-ui/react'
 import Details from '../Details/Details';
+import { ViewOffIcon } from '@chakra-ui/icons'
 
 
 function Form() {
@@ -18,7 +22,8 @@ function Form() {
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  
+  const [isMobile] = useMediaQuery('(min-width: 600px)')
+
   const changeFullNameHandler = (e: React.ChangeEvent<any>): void => {
     setFullName(e.target.value)
   }
@@ -29,20 +34,20 @@ function Form() {
   const changePasswordHandler = (e: React.ChangeEvent<any>): void => {
     setPassword(e.target.value)
 
-  
+
 
   }
   return (
 
-    <Flex maxW='100%' justify='center'>
-      
+    <Flex   direction={isMobile ? 'row':'column'} maxW='100%' justify='center'>
+
       <Center height='-webkit-fit-content'>
         <Image src='./Images/picture.png' />
       </Center>
-    
+
 
       <Center flexDirection='column' width='50%' height='-webkit-fit-content' background='#F7F8FF'>
-      
+
 
 
         <Box>
@@ -60,21 +65,48 @@ function Form() {
 
 
         <Box>
-          <Input variant='flushed' onChange={(e: React.ChangeEvent<any>): void => changeEmailHandler(e)} placeholder='email' value={email} width='434px'  top='89px'/>
-        </Box>
+<InputGroup>
+    <InputRightElement
+      pointerEvents='none'
+    />
+    <Input variant='flushed'  placeholder='Fullname' onChange={(e: React.ChangeEvent<any>): void => changeFullNameHandler(e)}  
+     value={fullName}/>
+  </InputGroup>
 
-        <Box>
-          <Input variant='flushed' onChange={(e: React.ChangeEvent<any>): void => changePasswordHandler(e)} placeholder='Password' value={password} width='434px'  top='89px'/>
-        </Box>
+</Box>
+
+<Box>
+<InputGroup>
+    <InputRightElement
+      pointerEvents='none'
+    />
+    <Input variant='flushed'  placeholder='Email' onChange={(e: React.ChangeEvent<any>): void => changeEmailHandler(e)}  
+     value={email}/>
+  </InputGroup>
+
+</Box>
+
+<Box>
+<InputGroup>
+    <InputRightElement
+      pointerEvents='none'
+      children={<ViewOffIcon color='gray.300' />}
+    />
+    <Input variant='flushed' type='password' placeholder='Password' onChange={(e: React.ChangeEvent<any>): void => changePasswordHandler(e)}  
+     value={password}/>
+  </InputGroup>
+
+</Box>
+
 
         <Box display='flex' alignItems='center'>
-          
-        <Details name={fullName} email={email} onOpen={onOpen} onClose={onClose} isOpen={isOpen} />
-        
+
+          <Details name={fullName} email={email} onOpen={onOpen} onClose={onClose} isOpen={isOpen} />
+
         </Box>
 
         <h2 text-align='center' color=' #000000' font-family='Roboto' font-style='normal' font-size='13px' font-weight='100' line-height='40px'>Do not have an account ? SignUp</h2>
-    
+
 
       </Center>
 
