@@ -21,9 +21,6 @@ function SignUp() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const [show, setShow] = React.useState(false)
-  const handleClick = () => setShow(!show)
-
   const [isMobile] = useMediaQuery('(min-width: 600px)')
 
   const { isOpen, onOpen, onClose } = useDisclosure();

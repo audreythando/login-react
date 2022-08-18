@@ -39,14 +39,14 @@ function Form() {
   }
   return (
 
-    <Flex   direction={isMobile ? 'row':'column'} maxW='100%' justify='center'>
+    <Flex   direction={isMobile ? 'row':'column'}  alignItems='center'>
 
-      <Center height='-webkit-fit-content'>
+      <Center height='400px' width='100%'>
         <Image src='./Images/picture.png' />
       </Center>
 
 
-      <Center flexDirection='column' width='50%' height='-webkit-fit-content' background='#F7F8FF'>
+      <Center flexDirection='column' width='100%' height='400px' background='#F7F8FF'>
 
 
 

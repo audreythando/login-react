@@ -26,9 +26,7 @@ interface ModalDetails {
 
 function Details(props: ModalDetails) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
-  const [name, setName] = useState<string | null | number>('')
-
+  
   return (
     <div>
       <Button onClick={onOpen} background='#DD6B20' mt='15px' left='25px' width='434px'
