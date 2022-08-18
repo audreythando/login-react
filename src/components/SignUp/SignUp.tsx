@@ -44,7 +44,7 @@ function SignUp() {
       </Center>
 
   
-      <Box width={isMobile ? '100%' : '50%'}  background='#F7F8FF'>
+      <Box width= {isMobile ? '100%' : '50%'} background='#F7F8FF'>
       <Flex direction='row' justify='space-between'>
         <Box></Box>
         <Box>

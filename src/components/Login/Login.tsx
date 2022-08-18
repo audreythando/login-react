@@ -41,15 +41,13 @@ function Form() {
 
     <Flex   direction={isMobile ? 'row':'column'}  alignItems='center'>
 
-      <Center height='400px' width='100%'>
+      <Center width= {isMobile ? '100%' : '50%'} >
         <Image src='./Images/picture.png' />
       </Center>
 
 
-      <Center flexDirection='column' width='100%' height='400px' background='#F7F8FF'>
-
-
-
+      <Box width= {isMobile ? '100%' : '50%'} background='#F7F8FF'>
+      <Center flexDirection='column'  height='400px' background='#F7F8FF'>
         <Box>
           <Heading
             fontFamily='Roboto' fontWeight='700'
@@ -109,6 +107,7 @@ function Form() {
 
 
       </Center>
+      </Box>
 
     </Flex>
 
