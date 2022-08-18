@@ -26,6 +26,7 @@ interface ModalDetails {
 
 
 function DetailModal(props: ModalDetails) {
+    
 
     let navigate = useNavigate();
 
@@ -37,8 +38,8 @@ function DetailModal(props: ModalDetails) {
 
     return (
         <Box>
-            <Button onClick={props.onOpen} background='#DD6B20' mt='15px' left='25px' width='434px'
-                borderRadius='15px' height='53px' marginTop='100px'>SignUp</Button>
+            <Button onClick={props.onOpen} background='#DD6B20' mt='80px' width='290px'
+                borderRadius='15px' height='40px' >SignUp</Button>
 
             <Modal isOpen={props.isOpen} onClose={closeModal} >
                 <ModalOverlay />

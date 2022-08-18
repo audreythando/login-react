@@ -29,8 +29,8 @@ function Details(props: ModalDetails) {
   
   return (
     <div>
-      <Button onClick={onOpen} background='#DD6B20' mt='15px' left='25px' width='434px'
-        borderRadius='15px' height='53px' marginTop='150px'>Login</Button>
+      <Button onClick={onOpen} background='#DD6B20' mt='80px'  width='290px'
+        borderRadius='15px' height='40px' >Login</Button>
 
 
       <Modal isOpen={isOpen} onClose={onClose} >
