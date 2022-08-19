@@ -1,9 +1,11 @@
 import React  from 'react';
-import { Image, Box, Flex, Center, Text , Button} from '@chakra-ui/react';
+import { Image, Box, Flex, Center, Text , Button, useMediaQuery} from '@chakra-ui/react';
 import { useNavigate } from "react-router-dom";
 
 
 function PageNotFound() {
+
+    const [isMobile] = useMediaQuery('(max-width: 600px)')
 
     let navigate = useNavigate();
 
@@ -13,7 +15,7 @@ function PageNotFound() {
     }
   
     return (
-        <Flex  justify='center' background=' #F7F8FF'>
+        <Flex direction={isMobile ? 'column-reverse' : 'row'}  justify='center' background=' #F7F8FF'>
     
             <Center flexDirection='column'>
 
