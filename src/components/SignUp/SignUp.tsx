@@ -37,7 +37,7 @@ function SignUp() {
   }
 
   return (
-    <Flex direction={isMobile ? 'column' : 'row'} maxW='100%' justify='center' >
+    <Flex direction={isMobile ? 'column-reverse' : 'row'}  justify='center'>
 
       <Center width={isMobile ? '100%' : '50%'}>
         <Image src='./Images/picture.png' />
