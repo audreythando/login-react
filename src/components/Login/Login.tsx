@@ -38,7 +38,7 @@ function Form() {
 
   }
   return (
-    <Flex direction={isMobile ? 'column' : 'row'}  justify='center'>
+    <Flex direction={isMobile ? 'column-reverse' : 'row'}  justify='center'>
 
     <Center width={isMobile ? '100%' : '50%'}>
       <Image src='./Images/picture.png' />
