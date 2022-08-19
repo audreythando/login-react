@@ -46,9 +46,9 @@ function SignUp() {
   }
 
   return (
-    <Flex direction={isMobile ? 'column-reverse' : 'row'}  justify='center'>
+    <Flex direction={isMobile ? 'column-reverse' : 'row'}  justify='center' maxHeight='100vh'>
 
-      <Center width={isMobile ? '100%' : '50%'}>
+      <Center width={isMobile ? '100%' : '50%'} >
         <Image src='./Images/picture.png' />
       </Center>
 
@@ -62,6 +62,7 @@ function SignUp() {
       </Flex>
 
         <Center flexDirection='column' height='-webkit-fit-content'>
+
           <Box>
             <Heading
               fontFamily='Roboto' fontWeight='700'
@@ -74,7 +75,13 @@ function SignUp() {
             <Image src='./Images/logo.png' alt='logo' width='313px' height='158px' />
           </Box>
 
-          <Box>
+
+          <Box></Box>
+        <Box mt='10px' fontWeight='100' color='grey' fontSize='15px'>
+          <h5>-OR-</h5>
+        </Box>
+
+          <Box mt='25px'>
             <InputGroup>
               <InputRightElement
                 pointerEvents='none'
@@ -85,7 +92,7 @@ function SignUp() {
 
           </Box>
 
-          <Box>
+          <Box >
             <InputGroup>
               <InputRightElement
                 pointerEvents='none'

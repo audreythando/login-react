@@ -48,7 +48,7 @@ function Form() {
 
   }
   return (
-    <Flex direction={isMobile ? 'column-reverse' : 'row'}  justify='center'>
+    <Flex direction={isMobile ? 'column-reverse' : 'row'}  justify='center' maxHeight='100vh'>
 
     <Center width={isMobile ? '100%' : '50%'}>
       <Image src='./Images/picture.png' />
@@ -69,7 +69,13 @@ function Form() {
           <Image src='./Images/logo.png' alt='logo' width='313px' height='158px' />
         </Box>
 
-        <Box>
+        <Box></Box>
+        <Box mt='10px' fontWeight='100' color='grey' fontSize='15px'>
+          <h5>-OR-</h5>
+        </Box>
+
+
+        <Box mt='25px'>
           <InputGroup>
             <InputRightElement
               pointerEvents='none'
