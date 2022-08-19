@@ -10,10 +10,11 @@ import {
   InputRightElement,
   InputGroup,
   useMediaQuery,
+  Text
 } from '@chakra-ui/react'
 import DetailModal from '../Details/DetailModal';
 import { ViewOffIcon, TriangleDownIcon } from '@chakra-ui/icons'
-
+import { useNavigate } from "react-router-dom";
 
 
 function SignUp() {
@@ -34,6 +35,14 @@ function SignUp() {
   const changePasswordHandler = (e: React.ChangeEvent<any>): void => {
     setPassword(e.target.value)
 
+  }
+
+  
+  let navigate = useNavigate();
+
+    
+  const BackToLogin = () => {
+    navigate("/login");
   }
 
   return (
@@ -107,7 +116,7 @@ function SignUp() {
 
           </Box>
 
-          <h4 text-align='center' color=' #000000' font-family='Roboto' font-style='normal' font-size='13px' font-weight='100' line-height='40px'>Do not have an account ? SignUp</h4>
+          <Text onClick={BackToLogin} text-align='center' color=' #000000' font-family='Roboto' font-style='normal' font-size='13px' font-weight='100' line-height='40px'>Already have an account ? Login</Text>
 
 
         </Center>
