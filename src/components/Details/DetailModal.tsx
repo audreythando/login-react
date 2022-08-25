@@ -38,7 +38,7 @@ function DetailModal(props: ModalDetails) {
 
     return (
         <Box>
-            <Button onClick={props.onOpen} background='#DD6B20' mt='70px' width='290px'
+            <Button type='submit' onClick={props.onOpen} background='#DD6B20' mt='70px' width='290px'
                 borderRadius='15px' height='40px' >SignUp</Button>
 
             <Modal isOpen={props.isOpen} onClose={closeModal} >

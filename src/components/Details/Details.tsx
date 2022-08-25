@@ -29,7 +29,7 @@ function Details(props: ModalDetails) {
   
   return (
     <div>
-      <Button onClick={onOpen} background='#DD6B20' mt='80px'  width='290px'
+      <Button type='submit' onClick={onOpen} background='#DD6B20' mt='80px'  width='290px'
         borderRadius='15px' height='40px' >Login</Button>
 
 
