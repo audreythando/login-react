@@ -15,12 +15,23 @@ import {
 import DetailModal from '../Details/DetailModal';
 import { ViewOffIcon, TriangleDownIcon } from '@chakra-ui/icons'
 import { useNavigate } from "react-router-dom";
+import { useForm, SubmitHandler } from 'react-hook-form';
 
+interface FormInputs {
+  fullName:string
+  password:string
+  email: string;
+    }
+  
 
 function SignUp() {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  
+    const submitForm = (data : FormInputs) => {
+      console.log(data);
+    };
 
   const [isMobile] = useMediaQuery('(max-width: 600px)')
 
@@ -40,10 +51,24 @@ function SignUp() {
   
   let navigate = useNavigate();
 
+  
+  const { register,
+    handleSubmit,
+    watch,
+    formState: { errors } }
+    = useForm<FormInputs>();
+
+
+  const submitFormHandler: SubmitHandler<FormInputs> = (data: FormInputs) => {
+    console.log('submit form is', data);
+    // setShowModal(true)
+  }
+
     
   const BackToLogin = () => {
     navigate("/login");
   }
+
 
   return (
     <Flex direction={isMobile ? 'column-reverse' : 'row'}  justify='center' maxHeight='100vh'>
@@ -62,7 +87,6 @@ function SignUp() {
       </Flex>
 
         <Center flexDirection='column' height='-webkit-fit-content'>
-
           <Box>
             <Heading
               fontFamily='Roboto' fontWeight='700'
@@ -74,54 +98,53 @@ function SignUp() {
           <Box>
             <Image src='./Images/logo.png' alt='logo' width='313px' height='158px' />
           </Box>
-
-
-          <Box></Box>
+ <Box></Box>
         <Box mt='10px' fontWeight='100' color='grey' fontSize='15px'>
           <h5>-OR-</h5>
         </Box>
 
-          <Box mt='25px'>
-            <InputGroup>
-              <InputRightElement
-                pointerEvents='none'
-              />
-              <Input variant='flushed' placeholder='Fullname' onChange={(e: React.ChangeEvent<any>): void => changeFullNameHandler(e)}
-                value={fullName} width='250px' />
-            </InputGroup>
+        <form onSubmit={handleSubmit(submitFormHandler)}>
 
-          </Box>
+<Input
+  variant='flushed'
+  type='text'
+  value={fullName}
+  {...register('fullName', { required: true })}
+  placeholder='Enter FullName'
+  onChange={(e: React.ChangeEvent<any>): void => changeFullNameHandler(e)} />
+<div>
+  {errors.fullName && <p>Last name is required</p>}
 
-          <Box >
-            <InputGroup>
-              <InputRightElement
-                pointerEvents='none'
-              />
-              <Input variant='flushed' placeholder='Email' onChange={(e: React.ChangeEvent<any>): void => changeEmailHandler(e)}
-                value={email} width='250px' />
-            </InputGroup>
+</div>
+<Input
+  variant='flushed'
+  type='email'
+  value={email}
+  {...register('email', { required: true })}
+  placeholder='Email'
+  onChange={(e: React.ChangeEvent<any>): void => changeEmailHandler(e)} />
+<div>
+  {errors.email && <p>Email is required</p>}
 
-          </Box>
+</div>
+<Input
+  variant='flushed'
+  type='text'
+  value={password}
+  {...register('password', { required: true })}
+  placeholder='Password'
+  onChange={(e: React.ChangeEvent<any>): void => changePasswordHandler(e)} />
+<div>
+  {errors.password && <p>Password is required</p>}
 
-          <Box>
-            <InputGroup>
-              <InputRightElement
-                pointerEvents='none'
-                children={<ViewOffIcon color='gray.300' />}
-              />
-              <Input variant='flushed' type='password' placeholder='Password' onChange={(e: React.ChangeEvent<any>): void => changePasswordHandler(e)}
-                value={password} width='250px' />
-            </InputGroup>
+</div>
+<DetailModal name={fullName} email={email} onOpen={onOpen} onClose={onClose} isOpen={isOpen} />
 
-          </Box>
+</form>
 
+           
 
-
-          <Box display='flex' alignItems='center'>
-
-            <DetailModal name={fullName} email={email} onOpen={onOpen} onClose={onClose} isOpen={isOpen} />
-
-          </Box>
+          
 
           <Text onClick={BackToLogin} text-align='center' color=' #000000' font-family='Roboto' font-style='normal' font-size='13px' font-weight='100' line-height='40px'>Already have an account ? Login</Text>
 
